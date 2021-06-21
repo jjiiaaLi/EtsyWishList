@@ -20,7 +20,7 @@ export default function IndividualProduct(){
     })
     
     const titleFunc=(title)=>{
-        if (title.length>15){
+        if (title.length>30){
             
             return title.slice(0,30)+'...'
         }
@@ -34,6 +34,16 @@ export default function IndividualProduct(){
         e.preventdefault()
         return null;
     }
+
+    const descFunc = (desc) => {
+      if (desc.length > 100) {
+        return desc.slice(0, 100) + "...";
+      } else {
+        return descFunc;
+      }
+    };
+
+    const productDesc= descFunc(product[0].description)
     
     if(!product){
         return (<h3>Loading...</h3>)
@@ -46,7 +56,7 @@ export default function IndividualProduct(){
         />
         <p>{productTitle}</p>
         <p>{`$ ${product[0]?.price}`}</p>
-        <p>{product[0].description}</p>
+        <p>{productDesc}</p>
         <button onClick={selectWishList}>Add To Wish List</button>
       </div>
    

@@ -32,7 +32,7 @@ export default function productReducer(state={}, action){
     let newState={}
     switch(action.type){
         case LOAD_PRODUCTS:
-            newState={}
+            newState={...state}
             
             action.products.forEach(product=>{
                 newState[product["listing_id"]]=product
