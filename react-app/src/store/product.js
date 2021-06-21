@@ -16,7 +16,7 @@ export const loadAllProducts=()=>async(dispatch)=>{
     if (res.ok){
         const data= await res.json()
         const filteredData=data.results.filter(product=>{
-            if (product.MainImage !== undefined){
+            if (product.MainImage !== undefined && product.price !== undefined){
                 return product
             }
         })
