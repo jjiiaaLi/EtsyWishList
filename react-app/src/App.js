@@ -38,16 +38,20 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path="/users" exact={true}>
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} >
+        <ProtectedRoute path="/" exact={true}>
           <h1>My Home Page</h1>
         </ProtectedRoute>
-        <Products exact path='/products' />
-        <IndividualProduct path='/products/:listingId' />
+        <Route exact path="/products">
+          <Products />
+        </Route>
+        <Route path="/products/:listingId" >
+          <IndividualProduct />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

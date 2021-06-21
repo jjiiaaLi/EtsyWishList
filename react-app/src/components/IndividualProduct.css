@@ -1,0 +1,11 @@
+.individualProductDiv {
+    max-height: 600px;
+    max-width: 700px;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.individualImage {
+    max-height: 350px;
+    max-width: 420px;
+}

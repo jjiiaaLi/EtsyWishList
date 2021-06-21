@@ -16,7 +16,7 @@ export default function Products(){
     return (
       <div className="productsContainer">
         {products.map((product) => (
-          <Link to={`/products/${product.listing_id}`}>
+          <Link  to={`/products/${product.listing_id}`}>
             <div className="eachProduct">
               <div classname="productListing">
                 <img
