@@ -27,7 +27,7 @@ export const loadWishlists=(userId)=> async (dispatch)=>{
     }
 }
 
-export const createWishlist=(user_id,name,bought)=> async(dispatch)=>{
+export const createWishlist=(user_id,name,items,bought)=> async(dispatch)=>{
     
     const res= await fetch('/api/wishlists/createNew',{
         method: 'POST',
@@ -37,6 +37,7 @@ export const createWishlist=(user_id,name,bought)=> async(dispatch)=>{
         body: JSON.stringify({
             user_id,
             name,
+            items,
             bought,
         })
     })

@@ -26,10 +26,10 @@ def post_wishlist():
         wishlist=Wish_List(
             user_id=form.data["user_id"],
             name=form.data["name"],
+            items=form.data["items"],
             bought=form.data["bought"]
         )
         db.session.add(wishlist)
-        print('before commit')
         db.session.commit()
-        print('after commit')
+        
 
