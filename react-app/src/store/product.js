@@ -36,7 +36,7 @@ export const loadSingleProduct=(listingId)=>async(dispatch)=>{
     
     if(res.ok){
         const data= await res.json()
-        // console.log(data)
+      
         dispatch(loadSingleProductAction(data.results[0]))
         
     }

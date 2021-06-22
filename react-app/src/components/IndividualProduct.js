@@ -18,7 +18,7 @@ export default function IndividualProduct(){
     }, [dispatch]);
 
     const product = useSelector((state) => Object.values(state.product));
-    console.log(product)
+    
     const descFunc = (desc) => {
       if (desc.length > 100) {
         const res = desc.slice(0, 100);

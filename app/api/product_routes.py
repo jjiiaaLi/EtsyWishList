@@ -13,7 +13,7 @@ def get_products():
     # categories=['stuffedanimals','cute', 'cats','shrek']
     # rand_num=randint(0,len(categories))
     # search_keyword=categories[rand_num]
-    response = requests.get(f"https://openapi.etsy.com/v2/listings/active/?api_key=h6jf3au38z1loqmhogom8cet&limit=50&includes=MainImage&keywords=cute")
+    response = requests.get(f"https://openapi.etsy.com/v2/listings/active/?api_key=h6jf3au38z1loqmhogom8cet&limit=50&includes=MainImage&keywords=cute -mature")
     return response.json()
 
 
