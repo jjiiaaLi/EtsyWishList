@@ -1,10 +1,10 @@
 /* TODO Add site wide styles */
 :root{
-    --main-background:#c9c9c9;
-    --secondary-background:#a8cdee;
-    --accent-one:#74c7e3;
+    --main-background:#D4C093;
+    --secondary-background:#74c7e3;
+    --accent-one:#278FB8;
     --accent-two:#a4b3bf;
-    --text-color:#000000;
+    --text-color:#4D4A54;
 }
  *{
      background-color: var(--main-background) ;
