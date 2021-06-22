@@ -11,6 +11,7 @@ import { authenticate } from "./store/session";
 import Products from "./components/Products"
 import IndividualProduct from "./components/IndividualProduct";
 import HomePage from "./components/HomePage";
+import CreateWishlist from "./components/CreateWishlist";
 import './index.css'
 
 function App() {
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path="/products/:listingId" >
           <IndividualProduct />
+        </Route>
+        <Route path='/createWishList'>
+          <CreateWishlist />
         </Route>
       </Switch>
     </BrowserRouter>

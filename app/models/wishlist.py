@@ -6,6 +6,6 @@ class Wish_List(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, nullable=False)
     name=db.Column(db.String, nullable=False)
-    bought=db.Column(db.Boolean)
+    bought=db.Column(db.String)
 
     products=db.relationship("Product", back_populates="wishlist")

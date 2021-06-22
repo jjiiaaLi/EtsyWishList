@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadWishlists } from '../store/wishLists';
 import {Link} from 'react-router-dom';
 import './HomePage.css';
+import CreateWishlist from './CreateWishlist';
 
 export default function HomePage(){
     const dispatch=useDispatch()
@@ -14,6 +15,7 @@ export default function HomePage(){
         dispatch(loadWishlists(userId))
     },[dispatch])
 
+    
    
     return (
         <div className='wishListContainer'>
@@ -24,7 +26,7 @@ export default function HomePage(){
                     </Link>
                 </div>
             ))}
-            <button className='addWishListBtn'>add new wishlist</button>
+            <Link to='/createWishList' >add new wishlist</Link>
         </div>
     )
 }
