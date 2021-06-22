@@ -1,0 +1,9 @@
+.NavBar > ul  {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.NavBar > ul > li{
+    list-style: none;
+}

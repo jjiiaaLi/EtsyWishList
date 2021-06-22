@@ -1,1 +1,11 @@
 /* TODO Add site wide styles */
+:root{
+    --main-background:#c9c9c9;
+    --secondary-background:#a8cdee;
+    --accent-one:#74c7e3;
+    --accent-two:#a4b3bf;
+    --text-color:#000000;
+}
+ *{
+     background-color: var(--main-background) ;
+ }

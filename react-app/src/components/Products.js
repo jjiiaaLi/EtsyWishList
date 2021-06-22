@@ -12,18 +12,18 @@ export default function Products(){
     useEffect(()=>{
         dispatch(loadAllProducts())
     },[dispatch])
-    console.log(products)
+    
     return (
       <div className="productsContainer">
         {products.map((product) => (
-          <Link  to={`/products/${product.listing_id}`}>
+          <Link className='anchor' to={`/products/${product.listing_id}`}>
             <div className="eachProduct">
-              <div classname="productListing">
+              <div className="productListing">
                 <img
                   className="listingImage"
                   src={product.MainImage.url_fullxfull}
                 />
-                <p>{"$" + product.price}</p>
+                <p className='prices'>{"$" + product.price}</p>
               </div>
             </div>
           </Link>
