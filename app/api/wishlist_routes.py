@@ -1,7 +1,8 @@
-from flask import Blueprint, jsonify
-from app.models import Wish_List
+from flask import Blueprint, jsonify, request
+from app.models import Wish_List, db
 import requests
 import json
+from app.forms.new_wishlist_form import Wishlist
 
 
 wishlist_routes = Blueprint('wishlists', __name__)
@@ -26,3 +27,17 @@ def get_wishlists(userId):
     return jsonify(returnlist)
 
     
+
+@wishlist_routes.route('/',methods=["POST"])
+def post_wishlist():
+    form=Wishlist()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        wishlist=Wish_List(
+            user_id=form.data.user_id,
+            name=form.data.name
+        )
+        db.session.add(wishlist)
+        # print('before commit')
+        db.session.commit()
+        # print('after commit')

@@ -2,7 +2,7 @@
 
 const GET_WISHLISTS='wishlists/GET_WISHLISTS'
 
-
+const ADD_WISHLIST='wishlists/ADD_WISHLIST'
 
 //action
 
@@ -11,7 +11,10 @@ const getWishLists=(wishlists)=>({
     wishlists:wishlists,
 })
 
-
+const addWishlist=(wishlist)=>({
+    type:ADD_WISHLIST,
+    wishlist:wishlist,
+})
 //thunks
 
 export const loadWishlists=(userId)=> async (dispatch)=>{
@@ -20,6 +23,21 @@ export const loadWishlists=(userId)=> async (dispatch)=>{
     if(res.ok){
         const data= await res.json()
         dispatch(getWishLists(data))
+    }
+}
+
+export const createWishlist=(user_id,name)=> async(dispatch)=>{
+    console.log(user_id)
+    console.log(name)
+    const res= await fetch('/api/wishlists',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({user_id,name})
+    })
+    if(res.ok){
+        console.log('returned to the front end')
     }
 }
 
