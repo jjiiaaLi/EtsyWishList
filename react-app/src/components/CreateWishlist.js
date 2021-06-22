@@ -5,20 +5,21 @@ import {createWishlist} from '../store/wishLists';
 
 export default function CreateWishlist(){
     const [name, setName]=useState('')
+    const [bought, setBought]= useState('')
     const user = useSelector(state=>Object.values(state.session))
     const user_id=user[0]["id"]
     const dispatch=useDispatch()
     const history=useHistory()
     
-    const createWishlist=async(e)=>{
+    const createNewWishlist=async(e)=>{
         e.preventDefault();
         
-        await dispatch(createWishlist(user_id,name))
+        const newWishlist= await dispatch(createWishlist(user_id,name,bought))
         history.push('/')
     }
 
     return (
-        <form className='createWishlistForm' onSubmit={createWishlist}>
+        <form className='createWishlistForm' onSubmit={createNewWishlist}>
             <div className='wishlistNameInputDiv'>
                 <label>Name</label>
                 <input value={name} onChange={e=>{setName(e.target.value)}} required={true}/>
