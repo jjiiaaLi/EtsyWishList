@@ -25,7 +25,7 @@ export const loadWishlists=(userId)=> async (dispatch)=>{
     }
 }
 
-export const createWishlist=(user_id,name,items,bought)=> async(dispatch)=>{
+export const createWishlist=(user_id,name,bought)=> async(dispatch)=>{
     
     const res= await fetch('/api/wishlists/createNew',{
         method: 'POST',
@@ -35,27 +35,36 @@ export const createWishlist=(user_id,name,items,bought)=> async(dispatch)=>{
         body: JSON.stringify({
             user_id,
             name,
-            items,
             bought,
         })
     })
 }
 
 
-export const editWishlist = (listingId, wishlist_id)=>async(dispatch)=>{
-
+export const editWishlist =
+  (listing_id, wishlist_id, title, image_url, price) => async (dispatch) => {
     const res = await fetch("/api/wishlists/addItem", {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        listingId,
+        listing_id,
         wishlist_id,
+        title,
+        image_url,
+        price
       }),
     });
-    
-};
+  };
+
+
+export const getWishlistItems = (wishlistId)=>async(dispatch)=>{
+
+
+
+
+}
 
 
 export default function WishlistReducer(state={}, action){

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import Wish_List, db
+from app.models import Wish_List, db, Product
 import requests
 import json
 from app.forms import Wishlist
@@ -27,25 +27,31 @@ def post_wishlist():
         wishlist=Wish_List(
             user_id=form.data["user_id"],
             name=form.data["name"],
-            items=form.data["items"],
             bought=form.data["bought"]
         )
         db.session.add(wishlist)
         db.session.commit()
         
 
-@wishlist_routes.route('/addItem',methods=["PUT"])
+@wishlist_routes.route('/addItem',methods=["POST"])
 def add_to_wishlist():
     
     data=json.loads(request.data.decode('utf-8'))
-    listingId=data["listingId"]
+    listing_id=data["listing_id"]
     wishlist_id=data["wishlist_id"]
+    name=data["title"]
+    image_url=data['image_url']
+    price=data["price"]
+    print(data)
+    newProduct=Product(
+        product_id=listing_id,
+        wishlist_id=wishlist_id,
+        name=name,
+        image_url=image_url,
+        price=price
+    )
     
-    targetWishlist=Wish_List.query.filter_by(id=wishlist_id).first()
-    currentItems=targetWishlist.items
-    if len(currentItems) == 0:
-        targetWishlist.items=listingId
-    else:
-        targetWishlist.items=currentItems+','+listingId
+    db.session.add(newProduct)
     db.session.commit()
+    
     return '',200
