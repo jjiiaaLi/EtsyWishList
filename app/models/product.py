@@ -12,7 +12,14 @@ class Product(db.Model):
 
     wishlist=db.relationship("Wish_List", back_populates="products" )
 
-
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "product_id": self.product_id,
+            "name": self.name,
+            "image_url": self.image_url,
+            "price":self.price
+        }
 
 
 

@@ -20,7 +20,7 @@ export const loadWishlists=(userId)=> async (dispatch)=>{
 
     if(res.ok){
         const data= await res.json()
-        console.log(data)
+       
         dispatch(getWishLists(data))
     }
 }
@@ -59,12 +59,7 @@ export const editWishlist =
   };
 
 
-export const getWishlistItems = (wishlistId)=>async(dispatch)=>{
 
-
-
-
-}
 
 
 export default function WishlistReducer(state={}, action){
