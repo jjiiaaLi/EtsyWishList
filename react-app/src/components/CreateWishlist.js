@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from 'react-router-dom';
 import {createWishlist} from '../store/wishLists';
-
+import "./createWishListStyle.css"
 export default function CreateWishlist(props){
     const { show, closeModal } = props;
     const [name, setName]=useState('')
@@ -26,6 +26,7 @@ export default function CreateWishlist(props){
         <div className={show ? "modal" : "hide"}>
           <button id="close" onClick={closeModal}>X</button>
         <form className='createWishlistForm' onSubmit={createNewWishlist}>
+            <div className="listFormTitle"> Create Wish List</div>
             <div className='wishlistNameInputDiv'>
                 <label>Name</label>
                 <input value={name} onChange={e=>{setName(e.target.value)}} required={true}/>
