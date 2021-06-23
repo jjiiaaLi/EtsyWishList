@@ -1,9 +1,33 @@
-.NavBar > ul  {
+:root{
+    --main-background:#D4C093;
+    --secondary-background:#74c7e3;
+    --accent-one:#278FB8;
+    --accent-two:#a4b3bf;
+    --text-color:#4D4A54;
+}
+
+
+
+.NavBar ul{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+background-color: var(--accent-one);
 }
 
-.NavBar > ul > li{
+.NavBar ul li{
     list-style: none;
+    background-color: var(--accent-one);
+}
+.NavBar ul li a{
+    text-decoration: none;
+    list-style: none;
+    background-color: var(--accent-one);
+}
+.NavBar{
+  background-color: var(--accent-one);
+  max-height: 50px;
+  padding: 10px;
+  text-decoration: none;
+  border:2px solid #4D4A54;
 }

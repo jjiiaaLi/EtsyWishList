@@ -5,6 +5,7 @@ import "./Nav.css"
 
 const NavBar = () => {
   return (
+    <div className="navContainer">
     <nav className='NavBar'>
       <ul>
         <li>
@@ -32,6 +33,7 @@ const NavBar = () => {
         </li>
       </ul>
     </nav>
+    </div>
   );
 }
 

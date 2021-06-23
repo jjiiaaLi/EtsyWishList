@@ -8,4 +8,19 @@
 }
  *{
      background-color: var(--main-background) ;
+     margin:0;
  }
+
+ .NavBar > ul  {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.NavBar > ul > li{
+    list-style: none;
+}
+
+.NavBar{
+    background-color: blue;
+}
