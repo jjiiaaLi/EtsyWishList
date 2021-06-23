@@ -20,6 +20,12 @@ export default function IndividualWishlist(){
         window.location.reload()
     }
 
+    const openInNewTab=(e)=>{
+        e.preventDefault()
+        const newWindow = window.open(`http://etsy.com/listing/${e.target.value}`, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+
     return (
         <div className='wishlistContainer'>
             {products.map(product=>(
@@ -27,7 +33,10 @@ export default function IndividualWishlist(){
                     <p>{product.name}</p>
                     <img className='wishlistproductimage' src={product.image_url} alt='product'/>
                     <p>${product.price}</p>
-                    <button value={product.id} onClick={removeItem}>delete</button>
+                    <button className="button" value={product.id} onClick={removeItem}>delete</button>
+                    <button className="button" value={product.product_id} onClick={openInNewTab}>
+                        View in Etsy
+                    </button>
                 </div>
             ))}
         </div>
