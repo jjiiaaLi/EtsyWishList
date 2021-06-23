@@ -1,6 +1,7 @@
 
 const LOAD_PRODUCTS="product/LOAD_PRODUCTS"
 const LOAD_SINGLE_PRODUCT="product/LOAD_SINGLE_PRODUCT"
+const SEARCH_PRODUCTS="product/SEARCH_PRODUCTS"
 //action
 
 const loadProducts=(products)=>({
@@ -11,6 +12,11 @@ const loadProducts=(products)=>({
 const loadSingleProductAction=(product)=>({
     type: LOAD_SINGLE_PRODUCT,
     product:product,
+})
+
+const searchProductsAction=(products)=>({
+    type: SEARCH_PRODUCTS,
+    products:products,
 })
 
 //thunk
@@ -53,7 +59,7 @@ export const searchProducts = (tags) => async(dispatch) => {
                 return product
             }
         })
-        dispatch(loadProducts(filteredData))
+        dispatch(searchProductsAction(filteredData))
     }
 }
 
@@ -72,6 +78,11 @@ export default function productReducer(state={}, action){
         case LOAD_SINGLE_PRODUCT:
             newState[action.product.listing_id]=action.product;
             return newState;
+        case SEARCH_PRODUCTS:
+            action.products.forEach(product => {
+                newState[product['listing_id']]=product
+            })
+            return newState
         default:
             return state;
     }
