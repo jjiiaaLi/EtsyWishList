@@ -17,12 +17,13 @@ export default function HomePage() {
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
-  
+
   useEffect(() => {
     dispatch(loadWishlists(userId));
   }, [dispatch]);
 
   return (
+    <div className="homeWrapper">
     <div className="wishListContainer">
       {wishlists.map((wishlist) => (
         <div className="individualWishListDiv">
@@ -30,11 +31,13 @@ export default function HomePage() {
             <div className="wishListName">{wishlist.name}</div>
           </Link>
         </div>
+
       ))}
       <div className="ModalComp">
-        {!show && <button onClick={openModal}>CreateWishList</button>}
+        {!show && <button className="createButton" onClick={openModal}>New Wish List</button>}
         <CreateWishlist closeModal={closeModal} show={show} />
       </div>
+    </div>
     </div>
   );
 }

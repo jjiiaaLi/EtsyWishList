@@ -11,11 +11,11 @@ export default function CreateWishlist(props){
     const user = useSelector(state=>Object.values(state.session))
     const user_id=user[0]["id"]
     const dispatch=useDispatch()
-    
-    
+
+
     const createNewWishlist=async(e)=>{
         e.preventDefault();
-        
+
         const newWishlist= await dispatch(createWishlist(user_id,name,items,bought))
         window.location.reload()
     }
