@@ -6,6 +6,16 @@ class Wish_List(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, nullable=False)
     name=db.Column(db.String, nullable=False)
+    items=db.Column(db.String)
     bought=db.Column(db.String)
 
     products=db.relationship("Product", back_populates="wishlist")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "name": self.name,
+            "items":self.items,
+            "bought": self.bought
+        }

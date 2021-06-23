@@ -24,3 +24,4 @@ def get_single_product(listingId):
         f"https://openapi.etsy.com/v2/listings/{listingId}/?api_key=h6jf3au38z1loqmhogom8cet&includes=MainImage")
 
     return response.json()
+

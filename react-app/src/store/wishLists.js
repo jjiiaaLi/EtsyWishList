@@ -2,7 +2,7 @@
 
 const GET_WISHLISTS='wishlists/GET_WISHLISTS'
 
-const ADD_WISHLIST='wishlists/ADD_WISHLIST'
+
 
 //action
 
@@ -11,10 +11,8 @@ const getWishLists=(wishlists)=>({
     wishlists:wishlists,
 })
 
-const addWishlist=(wishlist)=>({
-    type:ADD_WISHLIST,
-    wishlist:wishlist,
-})
+
+
 //thunks
 
 export const loadWishlists=(userId)=> async (dispatch)=>{
@@ -22,31 +20,49 @@ export const loadWishlists=(userId)=> async (dispatch)=>{
 
     if(res.ok){
         const data= await res.json()
+        console.log(data)
         dispatch(getWishLists(data))
     }
 }
 
-export const createWishlist=(user_id,name)=> async(dispatch)=>{
-    console.log(user_id)
-    console.log(name)
-    const res= await fetch('/api/wishlists',{
+export const createWishlist=(user_id,name,items,bought)=> async(dispatch)=>{
+    
+    const res= await fetch('/api/wishlists/createNew',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({user_id,name})
+        body: JSON.stringify({
+            user_id,
+            name,
+            items,
+            bought,
+        })
     })
-    if(res.ok){
-        console.log('returned to the front end')
-    }
 }
+
+
+export const editWishlist = (listingId, wishlist_id)=>async(dispatch)=>{
+
+    const res = await fetch("/api/wishlists/addItem", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        listingId,
+        wishlist_id,
+      }),
+    });
+    
+};
 
 
 export default function WishlistReducer(state={}, action){
     const newState={}
     switch(action.type){
         case GET_WISHLISTS:
-            action.wishlists.forEach(wishlist=>{
+            action.wishlists.wishlists.forEach(wishlist=>{
                 newState[wishlist.id]=wishlist
             })
             return newState
