@@ -80,7 +80,11 @@ export default function IndividualProduct(){
             </div>
 
             <div className="indivButtonsContainer">
-              {!show && <button onClick={openModal}>Add to Wishlist</button>}
+              {!show && (
+                <button className="button" onClick={openModal}>
+                  Add to Wishlist
+                </button>
+              )}
               <AddToWishList closeModal={closeModal} show={show} />
 
               <button className="button" onClick={openInNewTab}>
