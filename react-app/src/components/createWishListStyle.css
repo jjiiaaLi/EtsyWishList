@@ -1,0 +1,21 @@
+.createWishlistForm{
+    background-color: aqua;
+    height: 100px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.modal{
+    position: absolute;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: aquamarine;
+    justify-content: space-between;
+    display: -ms-inline-grid;
+    align-items: center;
+     z-index: 500;
+
+}

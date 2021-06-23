@@ -11,31 +11,45 @@
   flex-direction: column;
   align-items: center;
 }
-
-.wishListContainer {
-  border: 3px solid var(--accent-one);
+.listDiv{
+    margin: 25px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+ border: 3px solid var(--accent-one);
+ background-color: #74c7e3;
   border-radius: 12px;
-  display: flex;
+  width: 900px;
+  height:400px;
+  overflow: auto;
+  justify-content: space-between;
+}
+.wishListContainer{
   flex-wrap: auto;
   background-color: var(--secondary-background);
-  width: 900px;
-
   justify-content: center;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
   grid-template-areas:
-    "grid-area-1 grid-area-2 grid-area-3"
-    "grid-area-4 grid-area-5 grid-area-6"
-    "grid-area-7 grid-area-8 grid-area-9"
-    "grid-area-10 grid-area-11 grid-area-12"
-    "grid-area-13 grid-area-14 grid-area-15";
+    "grid-area-1 grid-area-2 grid-area-3 grid-area-4 grid-area-5 grid-area-6"
+    "grid-area-7 grid-area-8 grid-area-9 grid-area-10 grid-area-11 grid-area-12"
+    "grid-area-13 grid-area-14 grid-area-15 grid-area-16 grid-area-17 grid-area-18";
 }
 
 .individualWishListDiv {
+    display: flex;
   max-width: 200px;
   max-height: 150px;
   margin: 10px;
+  border: 2px solid var(--text-color);
+  height: 75px;
+  width: 75px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--accent-one);
+  border-radius: 10px;
 }
 .createButton{
   background-color: var(--accent-one);
@@ -49,6 +63,36 @@
   margin: 5px;
   cursor: pointer;
 }
-.ModalComp{
-    background-color: #74c7e3;
+.wishListName, .individualWishListDiv{
+    text-decoration: none;
+    background-color: var(--accent-one);
 }
+
+.ModalComp  {
+background-color: var(--secondary-background);
+height: 50px;
+}
+.createButton:hover{
+	font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.wishListTitle{
+    font-size: 25px;
+    background-color: #74c7e3;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-one);
+    width: 450px;
+}
+.individualWishListDiv:hover{
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+    z-index: 500;
+}
+
+

@@ -9,7 +9,7 @@
 .individualProductDiv {
 	flex-direction: column;
 	display: flex;
-    min-height: 600px;
+    height: 600px;
     width: 700px;
     border: 2px solid var(--accent-one);
     border-radius: 10px;

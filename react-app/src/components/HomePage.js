@@ -4,9 +4,7 @@ import { loadWishlists } from "../store/wishLists";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import CreateWishlist from "./CreateWishlist";
-import "./context/Modal.css"
-
-
+import "./context/Modal.css";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -24,20 +22,29 @@ export default function HomePage() {
 
   return (
     <div className="homeWrapper">
-    <div className="wishListContainer">
-      {wishlists.map((wishlist) => (
-        <div className="individualWishListDiv">
-          <Link to={`/wishlist/${wishlist.id}`}>
-            <div className="wishListName">{wishlist.name}</div>
-          </Link>
-        </div>
+      <CreateWishlist closeModal={closeModal} show={show} />
+      <div className="listDiv">
+        <div className="wishListTitle">My Wish Lists</div>
 
-      ))}
-      <div className="ModalComp">
-        {!show && <button className="createButton" onClick={openModal}>New Wish List</button>}
-        <CreateWishlist closeModal={closeModal} show={show} />
+        <div className="wishListContainer">
+
+          {wishlists.map((wishlist) => (
+            <div className="individualWishListDiv">
+              <Link to={`/wishlist/${wishlist.id}`}>
+                <div className="wishListName">{wishlist.name}</div>
+              </Link>
+            </div>
+          ))}
+        </div><div className="ModalComp">
+        {!show && (
+          <button className="createButton" onClick={openModal}>
+            New Wish List
+          </button>
+        )}
+
       </div>
-    </div>
+      </div>
+
     </div>
   );
 }
