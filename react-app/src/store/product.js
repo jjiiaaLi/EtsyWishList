@@ -30,6 +30,7 @@ export const loadAllProducts=()=>async(dispatch)=>{
     
 }
 
+
 export const loadSingleProduct=(listingId)=>async(dispatch)=>{
     
     const res=await fetch(`/api/products/${listingId}`)
@@ -39,6 +40,20 @@ export const loadSingleProduct=(listingId)=>async(dispatch)=>{
       
         dispatch(loadSingleProductAction(data.results[0]))
         
+    }
+}
+
+export const searchProducts = (tags) => async(dispatch) => {
+    const res = await fetch(`/api/search/${tags}`)
+    
+    if (res.ok) {
+        const data = await res.json()
+        const filteredData = data.results.filter(product => {
+            if (product.MainImage !== undefined && product.price !== undefined) {
+                return product
+            }
+        })
+        dispatch(loadProducts(filteredData))
     }
 }
 
