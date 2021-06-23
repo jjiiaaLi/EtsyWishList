@@ -27,18 +27,18 @@ export const loadAllProducts=()=>async(dispatch)=>{
         })
         dispatch(loadProducts(filteredData))
     }
-    
+
 }
 
 export const loadSingleProduct=(listingId)=>async(dispatch)=>{
-    
+
     const res=await fetch(`/api/products/${listingId}`)
-    
+
     if(res.ok){
         const data= await res.json()
-      
+
         dispatch(loadSingleProductAction(data.results[0]))
-        
+
     }
 }
 
@@ -49,10 +49,10 @@ export default function productReducer(state={}, action){
     switch(action.type){
         case LOAD_PRODUCTS:
             newState={...state}
-            
             action.products.forEach(product=>{
                 newState[product["listing_id"]]=product
             })
+
             return newState
         case LOAD_SINGLE_PRODUCT:
             newState[action.product.listing_id]=action.product;

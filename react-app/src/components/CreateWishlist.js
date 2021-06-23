@@ -11,8 +11,6 @@ export default function CreateWishlist(props){
     const dispatch=useDispatch()
     const history=useHistory()
     const createWishlist=async(e)=>{
-        e.preventDefault();
-        
         await dispatch(createWishlist(user_id,name))
         history.push('/')
     }
