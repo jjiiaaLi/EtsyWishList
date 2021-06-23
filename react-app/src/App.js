@@ -55,9 +55,7 @@ function App() {
         <Route path="/products/:listingId" >
           <IndividualProduct />
         </Route>
-        <Route path='/createWishList'>
-          <CreateWishlist />
-        </Route>
+        
       </Switch>
     </BrowserRouter>
   );

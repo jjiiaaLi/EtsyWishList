@@ -5,6 +5,7 @@ import json
 from app.forms import Wishlist
 
 
+
 wishlist_routes = Blueprint('wishlists', __name__)
 
 @wishlist_routes.route('/<int:userId>', methods=["GET"])
@@ -33,3 +34,18 @@ def post_wishlist():
         db.session.commit()
         
 
+@wishlist_routes.route('/addItem',methods=["PUT"])
+def add_to_wishlist():
+    
+    data=json.loads(request.data.decode('utf-8'))
+    listingId=data["listingId"]
+    wishlist_id=data["wishlist_id"]
+    
+    targetWishlist=Wish_List.query.filter_by(id=wishlist_id).first()
+    currentItems=targetWishlist.items
+    if len(currentItems) == 0:
+        targetWishlist.items=listingId
+    else:
+        targetWishlist.items=currentItems+','+listingId
+    db.session.commit()
+    return '',200
