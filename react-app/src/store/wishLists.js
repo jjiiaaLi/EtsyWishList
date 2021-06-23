@@ -2,7 +2,7 @@
 
 const GET_WISHLISTS='wishlists/GET_WISHLISTS'
 
-const ADD_WISHLIST='wishlists/ADD_WISHLIST'
+
 
 //action
 
@@ -11,10 +11,8 @@ const getWishLists=(wishlists)=>({
     wishlists:wishlists,
 })
 
-const addWishlist=(wishlist)=>({
-    type:ADD_WISHLIST,
-    wishlist:wishlist,
-})
+
+
 //thunks
 
 export const loadWishlists=(userId)=> async (dispatch)=>{
@@ -41,9 +39,23 @@ export const createWishlist=(user_id,name,items,bought)=> async(dispatch)=>{
             bought,
         })
     })
-    
-    
 }
+
+
+export const editWishlist = (listingId, wishlist_id)=>async(dispatch)=>{
+
+    const res = await fetch("/api/wishlists/addItem", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        listingId,
+        wishlist_id,
+      }),
+    });
+    
+};
 
 
 export default function WishlistReducer(state={}, action){
