@@ -1,15 +1,31 @@
+:root{
+    --main-background:#D4C093;
+    --secondary-background:#74c7e3;
+    --accent-one:#278FB8;
+    --accent-two:#a4b3bf;
+    --text-color:#4D4A54;
+}
+
 .individualProductDiv {
-    max-height: 600px;
-    max-width: 700px;
-    border-style: solid;
-    border-radius: 9px;
-    overflow: scroll;
-    
+	flex-direction: column;
+	display: flex;
+    min-height: 600px;
+    width: 700px;
+    border: 2px solid var(--accent-one);
+    border-radius: 10px;
+    overflow: auto;
+    background-color: var(--secondary-background);
+	align-items: center;
+	justify-content: center;
 }
 
 .individualImage {
+	margin: 0 auto;
+    border: 2px solid var(--accent-one);
     max-height: 350px;
     max-width: 420px;
+	border-radius: 10px;
+	background-color: #74c7e3;
 }
 
 .dotdotdotbtn {
@@ -24,10 +40,43 @@
 
 .Back {
     background: none;
-	color: blue;
 	border: none;
 	padding: 0;
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+.indivInfo{
+	background-color: var(--secondary-background);
+	padding: 5px;
+}
+.indivTitle{
+	border-bottom:2px solid #278FB8;
+   font-size: 20px;
+   margin: 5px;
+}
+.indivProductContainer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.button{
+  background-color: var(--accent-one);
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 5px;
+  cursor: pointer;
+}
+.indivButtonsContainer{
+	background-color: var(--secondary-background);
+}
+.button:hover{
+	font-size: 14px;
+	margin: 0px;
 }

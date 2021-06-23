@@ -6,48 +6,33 @@ import './IndividualProduct.css'
 
 
 export default function IndividualProduct(){
-    
     const history = useHistory();
     const {listingId}=useParams();
-    
+
     const dispatch = useDispatch();
-    
-    useEffect(() => {  
-         
+
+    useEffect(() => {
+
         dispatch(loadSingleProduct(listingId));
     }, [dispatch]);
 
     const product = useSelector((state) => Object.values(state.product));
-    
+
     const descFunc = (desc) => {
-      if (desc.length > 100) {
-        const res = desc.slice(0, 100);
+        const res = desc?.slice(0, 75);
         return(res);
-      }
     };
 
     const truncDesc = descFunc(product[0]?.description);
 
     const [desc, setDesc] = useState(truncDesc);
 
-    const titleFunc=(title)=>{
-        if (title.length>30){
-            
-            return title.slice(0,30)+'...'
-        }
-        else{
-            return title
-        }
-    }
-    const productTitle = titleFunc(product[0]?.title);
-
-    
     const Back = (e)=>{
         e.preventDefault()
-        
+
         history.push('/products')
     }
-    
+
 
     const selectWishList= async(e) =>{
         e.preventDefault()
@@ -56,31 +41,43 @@ export default function IndividualProduct(){
 
     const showFullDesc=(e)=>{
         e.preventDefault()
-        setDesc(product[0].description)
+        desc === truncDesc ? setDesc(product[0].description) : setDesc(truncDesc)
+
     }
-    
+
+    const openInNewTab = () => {
+      const newWindow = window.open(product[0]?.url, '_blank', 'noopener,noreferrer')
+      if (newWindow) newWindow.opener = null
+    }
+
     if(!product){
         return (<h3>Loading...</h3>)
     }
+
     return (
-      <div>
-        <button className='Back' onClick={Back}> Back </button>  
+      <div className="indivProductContainer">
+        <button className='Back' onClick={Back}> Back </button>
+        <div className="productCardContainer">
         <div className="individualProductDiv">
+          <div className="indivTitle indivInfo">{product[0]?.title.slice(0, 60)}</div>
           <img
             className="individualImage"
             src={product[0]?.MainImage.url_fullxfull}
           />
-          <p>{productTitle}</p>
-          <p>{`$ ${product[0]?.price}`}</p>
-          <p>
+
+          <div className="indivInfo">{`Price: $${product[0]?.price}`}</div>
+          <div className="indivInfo">
             {desc}
-            <button className="dotdotdotbtn" onClick={showFullDesc}>
-              ...
+            <button className="dotdotdotbtn" onClick={showFullDesc}>...
             </button>
-          </p>
-          <button onClick={selectWishList}>Add To Wish List</button>
+          </div>
+          <div className="indivButtonsContainer">
+          <button className="button" onClick={selectWishList}>Add To Wish List</button>
+          <button className="button" onClick={openInNewTab}>View in Etsy</button>
+          </div>
         </div>
       </div>
+      </div>
     );
- 
+
 }
