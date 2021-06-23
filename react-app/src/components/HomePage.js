@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import "./HomePage.css";
 import CreateWishlist from "./CreateWishlist";
 import "./context/Modal.css"
+
+
+
 export default function HomePage() {
   const dispatch = useDispatch();
   const user = useSelector((state) => Object.values(state.session));
