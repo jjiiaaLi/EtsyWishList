@@ -4,16 +4,19 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {searchProducts} from '../store/product'
+import { useHistory } from "react-router-dom";
 
 const SearchBar = () => {
 
     const [searchTerm, setSearchTerm] = useState('')
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const handleSearch = async (e) => {
         e.preventDefault()
         const tags = searchTerm.replace(/\s/g, '') // remove whitespace regex
         dispatch(searchProducts(tags))
+        history.push('/products')
     }
 
     return (
