@@ -14,6 +14,7 @@ import HomePage from "./components/HomePage";
 import CreateWishlist from "./components/CreateWishlist";
 import IndividualWishlist from "./components/IndividualWishlist";
 import Root from './components/Root'
+import Footer from './components/Footer'
 import './index.css'
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <IndividualWishlist />
         </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }

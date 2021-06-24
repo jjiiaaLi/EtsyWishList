@@ -31,3 +31,9 @@ background-color: var(--accent-one);
   text-decoration: none;
   border:2px solid #4D4A54;
 }
+
+.Footer{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+}
