@@ -32,7 +32,7 @@ export default function IndividualWishlist(){
             {products.map(product=>(
                 <div className='eachProduct'>
                     <p>{product.name}</p>
-                    <Link to={`/products/${product.product_id}`}><img className='wishlistproductimage' src={product.image_url} alt='product'/></Link>
+                    <img className='wishlistproductimage' src={product.image_url} alt='product'/>
                     <p>${product.price}</p>
                     <button className="button" value={product.id} onClick={removeItem}>delete</button>
                     <button className="button" value={product.product_id} onClick={openInNewTab}>
