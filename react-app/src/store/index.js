@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session"
 import productReducer from "./product"
 import WishlistReducer from "./wishLists";
+import friendsReducer from './friends';
 
 const rootReducer = combineReducers({
     session:sessionReducer,
     product:productReducer,
     wishlist:WishlistReducer,
+    friend:friendsReducer,
 });
 
 

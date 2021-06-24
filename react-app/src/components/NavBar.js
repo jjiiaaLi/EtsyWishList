@@ -9,10 +9,11 @@ const NavBar = () => {
 
   let userId
   let user=useSelector(state=>state.session.user)
-
+  
   if (user){
     
-    userId=user[2]
+    userId=user.id
+    
   }
 
   return (
