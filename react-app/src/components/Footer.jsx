@@ -12,7 +12,7 @@ export default function Footer(){
             <a href='https://github.com/jjiiaaLi'>Jia's Github</a>
             <a href='https://www.linkedin.com/in/john-witter-witlacil-556a3b158/'>John's LinkedIn</a>
             <a href='https://www.linkedin.com/in/kevin-tran-059926124/'>Kevin's LinkedIn</a>
-            <a href='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt0126029%2F&psig=AOvVaw13swyRd9CQRC10HFa6BkiC&ust=1624655462030000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCPCQyLCXsfECFQAAAAAdAAAAABAD'>James' LinkedIn</a>
+            <a href='https://i.redd.it/1vjxppzccfo41.jpg'>James' LinkedIn</a>
             <a href='https://www.linkedin.com/in/jia-li-2829b140/'>Jia's LinkedIn</a> 
         </div>
         
