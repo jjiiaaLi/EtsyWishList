@@ -11,7 +11,7 @@
 .NavBar ul{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 background-color: var(--accent-one);
 }
 
@@ -30,4 +30,33 @@ background-color: var(--accent-one);
   padding: 10px;
   text-decoration: none;
   border:2px solid #4D4A54;
+}
+.NavBar ul{
+    display: flex;
+    justify-content: space-between;
+}
+.NavBar input{
+background-color: var(--accent-two);
+    border-radius: 5px;
+    margin: 10px;
+}
+.searchBar{
+    background-color: var(--accent-one);
+}
+
+.liButton{
+background-color: var(--secondary-background);
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 1px;
+  cursor: pointer;
+}
+.loginSignup{
+    justify-self: flex-end;
+    display: flex;
 }
