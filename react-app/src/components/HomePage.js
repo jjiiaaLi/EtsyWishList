@@ -22,11 +22,11 @@ export default function HomePage() {
   
   const userFriends=useSelector(state=>Object.values(state.friend));
   
-  
-  const friendsArray=user[0].friends.split(',')
+  const friendsArray = user[0].friends.split(",");
   
 
   useEffect(() => {
+    console.log(userFriends)
     dispatch(loadWishlists(paramId.userId));
     dispatch(loadFriend(friendsArray));
   }, [dispatch,paramId.userId]);

@@ -60,3 +60,12 @@ background-color: var(--secondary-background);
     justify-self: flex-end;
     display: flex;
 }
+
+.Footer{
+background-color: var(--accent-one);
+  max-height: 50px;
+
+  text-decoration: none;
+  border:2px solid #4D4A54;
+  bottom: 0;
+}

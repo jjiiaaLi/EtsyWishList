@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import "./forms.css"
 const SignUpForm = () => {
@@ -11,13 +11,14 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
+ 
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password,));
     }
   };
-
   const updateUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -86,6 +87,7 @@ const SignUpForm = () => {
           </div>
           <div className ="buttonDiv">
           <button className="button"type="submit">Sign Up</button>
+          <Link to='/login' >Already Have An Account?</Link>
           </div>
           </div>
         </form>
