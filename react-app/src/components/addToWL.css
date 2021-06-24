@@ -1,0 +1,45 @@
+:root {
+  --main-background: #bba572;
+  --secondary-background: #74c7e3;
+  --accent-one: #278fb8;
+  --accent-two: #a4b3bf;
+  --text-color: #4d4a54;
+}
+
+
+.addwishlistcontainer{
+    background-color: var(--accent-one);
+}
+.addWLButtonsContainer{
+    background-color: var(--accent-one);
+    flex-wrap: auto;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "grid-area-1 grid-area-2 grid-area-3 grid-area-4 grid-area-5 grid-area-6"
+    "grid-area-7 grid-area-8 grid-area-9 grid-area-10 grid-area-11 grid-area-12"
+    "grid-area-13 grid-area-14 grid-area-15 grid-area-16 grid-area-17 grid-area-18";
+}
+button{
+  background-color: var(--secondary-background);
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 5px;
+  cursor: pointer;
+}
+.wishListButtons{
+    background-color: var(--accent-one);
+}
+
+.addWLTitle{
+background-color:var(--accent-one);
+text-align: center;
+border-bottom: 2px solid var(--secondary-background);
+}
