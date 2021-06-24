@@ -7,7 +7,6 @@ export default function CreateWishlist(props){
     const { show, closeModal } = props;
     const [name, setName]=useState('')
     const [bought, setBought]= useState('')
-    const [items, setItems]=useState('')
     const user = useSelector(state=>Object.values(state.session))
     const user_id=user[0]["id"]
     const dispatch=useDispatch()
@@ -16,7 +15,7 @@ export default function CreateWishlist(props){
     const createNewWishlist=async(e)=>{
         e.preventDefault();
 
-        const newWishlist= await dispatch(createWishlist(user_id,name,items,bought))
+        const newWishlist= await dispatch(createWishlist(user_id,name,bought))
         window.location.reload()
     }
 

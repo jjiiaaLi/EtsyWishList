@@ -8,17 +8,18 @@ import './IndividualProduct.css'
 
 
 export default function IndividualProduct(){
-
+  const dispatch = useDispatch();
   const history = useHistory();
   const {listingId}=useParams();
-  const dispatch = useDispatch();
-    const [show, setShow] = useState(false);
-    const openModal = () => setShow(true);
-    const closeModal = () => setShow(false);
+  
+  const [show, setShow] = useState(false);
+  const openModal = () => setShow(true);
+  const closeModal = () => setShow(false);
 
   
 
   useEffect(() => {
+      
       dispatch(loadSingleProduct(listingId));
   }, [dispatch]);
 

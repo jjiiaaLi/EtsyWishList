@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import Wish_List, db
+from app.models import Wish_List, db, Product, product
 import requests
 import json
 from app.forms import Wishlist
@@ -27,25 +27,49 @@ def post_wishlist():
         wishlist=Wish_List(
             user_id=form.data["user_id"],
             name=form.data["name"],
-            items=form.data["items"],
             bought=form.data["bought"]
         )
         db.session.add(wishlist)
         db.session.commit()
         
 
-@wishlist_routes.route('/addItem',methods=["PUT"])
+@wishlist_routes.route('/addItem',methods=["POST"])
 def add_to_wishlist():
     
     data=json.loads(request.data.decode('utf-8'))
-    listingId=data["listingId"]
+    listing_id=data["listing_id"]
     wishlist_id=data["wishlist_id"]
+    name=data["title"]
+    image_url=data['image_url']
+    price=data["price"]
     
-    targetWishlist=Wish_List.query.filter_by(id=wishlist_id).first()
-    currentItems=targetWishlist.items
-    if len(currentItems) == 0:
-        targetWishlist.items=listingId
-    else:
-        targetWishlist.items=currentItems+','+listingId
+    newProduct=Product(
+        product_id=listing_id,
+        wishlist_id=wishlist_id,
+        name=name,
+        image_url=image_url,
+        price=price
+    )
+    
+    db.session.add(newProduct)
     db.session.commit()
+    
+    return '',200
+
+
+@wishlist_routes.route('/getItems/<string:wishlistId>', methods=["GET"])
+def populate_wishlist(wishlistId):
+    
+    items=Product.query.filter_by(wishlist_id=int(wishlistId)).all()
+    
+    return {"products":[product.to_dict() for product in items]}
+    
+@wishlist_routes.route('/<int:product_id>',methods=["DELETE"])
+def delete_product(product_id):
+
+    product=Product.query.filter_by(id=product_id).first()
+    
+    db.session.delete(product)
+    db.session.commit()
+
     return '',200
