@@ -1,5 +1,14 @@
+:root {
+  --main-background: #bba572;
+  --secondary-background: #74c7e3;
+  --accent-one: #278fb8;
+  --accent-two: #a4b3bf;
+  --text-color: #4d4a54;
+}
+
+
 .createWishlistForm{
-    background-color: aqua;
+    background-color: var(--accent-one);
     height: 100px;
     width: 100%;
     margin: 0 auto;
@@ -12,10 +21,53 @@
     position: absolute;
     margin: 0 auto;
     border-radius: 10px;
-    background-color: aquamarine;
+    border: 3px solid var(--accent-two);
+    background-color: var(--accent-one);
     justify-content: space-between;
-    display: -ms-inline-grid;
-    align-items: center;
      z-index: 500;
 
+}
+.listFormTitle{
+    background-color: var(--accent-one);
+    border-bottom: 2px solid var(--text-color);
+    width: 50%;
+    text-align: center;
+}
+
+.wishlistNameInputDiv label, .wishlistNameInputDiv{
+    background-color: var(--accent-one);
+}
+
+
+.wishlistNameInputDiv label{
+    padding: 1px;
+    margin: 5px;
+    border-right:2px solid  var(--text-color);
+}
+.buttonContainer{
+    height:20px;
+    background-color: var(--accent-one);
+}
+.wishlistNameInputDiv input{
+    border-radius: 5px;
+    background-color: #a4b3bf;
+    border: 2px solid var(--text-color);
+}
+
+#close{
+    background-color:#60b8db;
+    border: 2px solid var(--text-color);
+    border-color: #4d4a54;
+}
+.button{
+  background-color: var(--secondary-background);
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 5px;
+  cursor: pointer;
 }

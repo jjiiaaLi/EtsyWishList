@@ -9,13 +9,13 @@ export default function Products(){
     const [ titleLen,setTitleLen] = useState(30)
     const [focusTitle, setFocusTitle] = useState(null)
 
-    const products= useSelector(state=>Object.values(state.product))
+
     const dispatch = useDispatch()
 
     useEffect(()=>{
         dispatch(loadAllProducts())
     },[dispatch])
-
+    const products= useSelector(state=>Object.values(state.product))
     return (
       <div className="productsContainer">
         {products.map((product, i) => (
