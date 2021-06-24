@@ -38,20 +38,20 @@ export default function IndividualWishlist() {
     <div className="wishlistContainer">
       {products.map((product) => (
         <div className="productCardWL" style={{ backgroundImage: `url("${product.image_url}")` }}>
-          <div className="productTitle">{product.name.slice(0, 20)}...</div>
+          <div className="productTitle">{product?.name?.slice(0, 20)}...</div>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-            <div className="productPrice">${product.price}</div>
+            <div className="productPrice">${product?.price}</div>
           <div className="productButtonContainer">
-            <button className="button" value={product.id} onClick={removeItem}>
+            <button className="button" value={product?.id} onClick={removeItem}>
               Remove
             </button>
             <button
               className="button"
-              value={product.product_id}
+              value={product?.product_id}
               onClick={openInNewTab}
             >
               View in Etsy
