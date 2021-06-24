@@ -30,8 +30,10 @@ export default function CreateWishlist(props){
                 <label>Name</label>
                 <input value={name} onChange={e=>{setName(e.target.value)}} required={true}/>
             </div>
-            <button onClick={closeModal} type="submit">Create</button>
-        </form>
+            <div className="buttonContainer">
+            <button className="button" onClick={closeModal} type="submit">Create</button>
+       </div>
+       </form>
         </div>
         </>
     )

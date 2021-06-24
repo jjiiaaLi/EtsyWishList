@@ -11,15 +11,15 @@ export default function IndividualProduct(){
   const dispatch = useDispatch();
   const history = useHistory();
   const {listingId}=useParams();
-  
+
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
 
-  
+
 
   useEffect(() => {
-      
+
       dispatch(loadSingleProduct(listingId));
   }, [dispatch]);
 
@@ -71,7 +71,7 @@ export default function IndividualProduct(){
               className="individualImage"
               src={product[0]?.MainImage.url_fullxfull}
             />
-
+             <AddToWishList closeModal={closeModal} show={show} />
             <div className="indivInfo">{`Price: $${product[0]?.price}`}</div>
             <div className="indivInfo">
               {desc}
@@ -86,7 +86,6 @@ export default function IndividualProduct(){
                   Add to Wishlist
                 </button>
               )}
-              <AddToWishList closeModal={closeModal} show={show} />
 
               <button className="button" onClick={openInNewTab}>
                 View in Etsy

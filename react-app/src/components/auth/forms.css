@@ -1,0 +1,72 @@
+:root {
+  --main-background: #bba572;
+  --secondary-background: #74c7e3;
+  --accent-one: #278fb8;
+  --accent-two: #a4b3bf;
+  --text-color: #4d4a54;
+
+}
+
+
+
+
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.loginFormDiv{
+    height: 200px;
+    max-width: 500px;
+    background-color: #74c7e3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 3px solid var(--accent-one);
+    border-radius: 10px;
+    margin: 25px;
+}
+.signupFormDiv{
+    height: 275px;
+    max-width: 500px;
+    background-color: #74c7e3;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 3px solid var(--accent-one);
+    border-radius: 10px;
+    margin: 25px;
+}
+
+.formInputWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #74c7e3;
+}
+.emailInput,.passwordInput, .usernameInput{
+    padding: 5px;
+    background-color: #74c7e3;
+}
+.emailInput label, .passwordInput label, .usernameInput label{
+    background-color: #74c7e3;
+    border-right: 2px solid var(--accent-one);
+    padding: 2px;
+}
+.buttonDiv{
+    height:25px;
+    background-color: #74c7e3;
+}
+.emailInput input, .passwordInput input, .usernameInput input {
+    background-color: var(--accent-two);
+    border-radius: 5px;
+    margin: 10px;
+}
+ .formTitle{
+     background-color: var(--secondary-background);
+     border-bottom: 2px solid var(--accent-one);
+     width: 50%;
+     text-align: center;
+ }
