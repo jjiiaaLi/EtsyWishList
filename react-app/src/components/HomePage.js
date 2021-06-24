@@ -56,7 +56,7 @@ export default function HomePage() {
         </div>
         <div className="ModalComp">
           {!show && (
-            <button className="createButton" onClick={openModal}>
+            (paramId.userId==userId) &&<button className="createButton" onClick={openModal}>
               New Wish List
             </button>
           )}
