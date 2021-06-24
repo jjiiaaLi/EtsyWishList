@@ -55,7 +55,7 @@ flex-direction: column;
   height:150px;
   border-radius: 10px;
   color: var(--text-color);
-  opacity: 0.9;
+  opacity: 0.7;
    background-color:var(--secondary-background);
   font-size: 20px;
   border: 2px solid var(--accent-one);

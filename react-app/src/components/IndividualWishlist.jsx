@@ -8,8 +8,8 @@ export default function IndividualWishlist(){
     const {wishlistId}=useParams()
     const dispatch=useDispatch()
     const products=useSelector(state=>Object.values(state.product))
-    
-    
+
+
     useEffect(()=>{
         dispatch(getWishlistItems(wishlistId))
         return ()=>dispatch(clearProducts())
@@ -28,18 +28,42 @@ export default function IndividualWishlist(){
     }
 
     return (
-        <div className='wishlistContainer'>
-            {products.map(product=>(
-                <div className='eachProduct'>
-                    <p>{product.name}</p>
-                    <Link to={`/products/${product.product_id}`}><img className='wishlistproductimage' src={product.image_url} alt='product'/></Link>
-                    <p>${product.price}</p>
-                    <button className="button" value={product.id} onClick={removeItem}>delete</button>
-                    <button className="button" value={product.product_id} onClick={openInNewTab}>
-                        View in Etsy
-                    </button>
-                </div>
-            ))}
-        </div>
-    )
+      <div className="wishlistContainer">
+        {products.map((product) => (
+          <div className="productCard">
+            <div className="productTitle">{product.name.slice(0, 20)}</div>
+            <div className="ProductInfo">
+             <Link
+              className="productLink"
+              to={`/products/${product.product_id}`}
+             >
+              <div
+                className="productImage"
+                style={{ backgroundImage: `url("${product.image_url}")` }}
+              ></div>
+             </Link>
+
+                <div>${product.price}</div>
+            </div>
+
+            <div className="productButtonContainer">
+              <button
+                className="button"
+                value={product.id}
+                onClick={removeItem}
+              >
+                delete
+              </button>
+              <button
+                className="button"
+                value={product.product_id}
+                onClick={openInNewTab}
+              >
+                View in Etsy
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
 }
