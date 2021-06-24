@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch , Redirect} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -13,6 +13,7 @@ import IndividualProduct from "./components/IndividualProduct";
 import HomePage from "./components/HomePage";
 import CreateWishlist from "./components/CreateWishlist";
 import IndividualWishlist from "./components/IndividualWishlist";
+import Root from './components/Root'
 import './index.css'
 
 function App() {
@@ -45,18 +46,18 @@ function App() {
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true}>
           <HomePage />
         </ProtectedRoute>
+        <Route path="/" exact={true}>
+          <Root />
+        </Route>
         <Route exact path="/products">
           <Products />
         </Route>
-        <Route path="/products/:listingId" >
+        <Route path="/products/:listingId">
           <IndividualProduct />
         </Route>
-        <Route path='/wishlist/:wishlistId'>
+        <Route path="/wishlist/:wishlistId">
           <IndividualWishlist />
         </Route>
       </Switch>

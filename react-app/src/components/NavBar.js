@@ -1,18 +1,28 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
 import "./Nav.css"
 
 const NavBar = () => {
+
+  let userId
+  let user=useSelector(state=>state.session.user)
+
+  if (user){
+    
+    userId=user[2]
+  }
+
   return (
     <div className="navContainer">
     <nav className='NavBar'>
       <ul>
         <li>
-          <NavLink to="/" exact={true} activeClassName="active">
+          {user && <NavLink to={`/users/${userId}`} exact={true} activeClassName="active">
             Home
-          </NavLink>
+          </NavLink>}
         </li>
         <li>
           <NavLink to="/login" exact={true} activeClassName="active">
