@@ -1,33 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadWishlists } from "../store/wishLists";
-import { Link } from "react-router-dom";
+import { Link , useParams} from "react-router-dom";
 import "./HomePage.css";
 import CreateWishlist from "./CreateWishlist";
 import "./context/Modal.css";
+import {loadFriend} from '../store/friends';
 
 export default function HomePage() {
   const dispatch = useDispatch();
   const user = useSelector((state) => Object.values(state.session));
   const userId = user[0]["id"];
+  const paramId = useParams();
   const wishlists = useSelector((state) => Object.values(state.wishlist));
+  
+ 
 
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
+  
+  const userFriends=useSelector(state=>Object.values(state.friend));
+  
+  
+  const friendsArray=user[0].friends.split(',')
+  
 
   useEffect(() => {
-    dispatch(loadWishlists(userId));
-  }, [dispatch]);
+    dispatch(loadWishlists(paramId.userId));
+    dispatch(loadFriend(friendsArray));
+  }, [dispatch,paramId.userId]);
 
   return (
     <div className="homeWrapper">
       <CreateWishlist closeModal={closeModal} show={show} />
+      {userFriends &&
+        <div className="friendsContainer">
+          <h2>Friends</h2>
+          {userFriends.map((friend) => (
+            <Link to={`/users/${friend.id}`}>{friend.username}</Link>
+          ))}
+        </div>
+      }
       <div className="listDiv">
         <div className="wishListTitle">My Wish Lists</div>
 
         <div className="wishListContainer">
-
           {wishlists.map((wishlist) => (
             <div className="individualWishListDiv">
               <Link to={`/wishlist/${wishlist.id}`}>
@@ -35,16 +53,15 @@ export default function HomePage() {
               </Link>
             </div>
           ))}
-        </div><div className="ModalComp">
-        {!show && (
-          <button className="createButton" onClick={openModal}>
-            New Wish List
-          </button>
-        )}
-
+        </div>
+        <div className="ModalComp">
+          {!show && (
+            <button className="createButton" onClick={openModal}>
+              New Wish List
+            </button>
+          )}
+        </div>
       </div>
-      </div>
-
     </div>
   );
 }

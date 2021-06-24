@@ -17,3 +17,8 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+# @user_routes.route('/friends/<int:userId>')
+# def get_friends(userId):
+#     friends=User.query.get(userId)
