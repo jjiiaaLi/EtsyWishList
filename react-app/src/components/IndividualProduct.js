@@ -19,6 +19,7 @@ export default function IndividualProduct(){
   
 
   useEffect(() => {
+      
       dispatch(loadSingleProduct(listingId));
   }, [dispatch]);
 

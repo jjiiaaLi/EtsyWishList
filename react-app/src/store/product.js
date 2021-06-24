@@ -3,6 +3,7 @@ const LOAD_PRODUCTS="product/LOAD_PRODUCTS"
 const LOAD_SINGLE_PRODUCT="product/LOAD_SINGLE_PRODUCT"
 const SEARCH_PRODUCTS="product/SEARCH_PRODUCTS"
 const WISHLIST_PRODUCTS="product/WISHLIST_PRODUCTS"
+const CLEAR_PRODUCTS="product/CLEAR_PRODUCTS"
 //action
 
 const loadProducts=(products)=>({
@@ -25,10 +26,14 @@ const loadWishlistProducts=(products)=>({
     products:products,
 })
 
+export const clearProducts=()=>({
+    type:CLEAR_PRODUCTS,
+
+})
 //thunk
 
 export const loadAllProducts=()=>async(dispatch)=>{
-    const res=await fetch('/api/products')
+    const res=await fetch('/api/products/')
 
     if (res.ok){
         const data= await res.json()
@@ -45,7 +50,7 @@ export const loadAllProducts=()=>async(dispatch)=>{
 
 export const loadSingleProduct=(listingId)=>async(dispatch)=>{
     
-    const res=await fetch(`/api/products/${listingId}`)
+    const res=await fetch(`/api/products/${listingId}/`)
 
     if(res.ok){
         const data= await res.json()
@@ -56,7 +61,7 @@ export const loadSingleProduct=(listingId)=>async(dispatch)=>{
 }
 
 export const searchProducts = (tags) => async(dispatch) => {
-    const res = await fetch(`/api/search/${tags}`)
+    const res = await fetch(`/api/search/${tags}/`)
     
     if (res.ok) {
         const data = await res.json()
@@ -116,6 +121,8 @@ export default function productReducer(state={}, action){
             action.products.products.forEach(product=>{
                 newState[product['product_id']]=product
             })
+            return newState
+        case CLEAR_PRODUCTS:
             return newState
         default:
             return state;

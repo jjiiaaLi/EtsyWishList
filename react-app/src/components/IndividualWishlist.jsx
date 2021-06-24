@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useParams, useHistory, Link} from 'react-router-dom';
-import {getWishlistItems,removeProductFromWishlist} from '../store/product';
+import {getWishlistItems,removeProductFromWishlist, clearProducts} from '../store/product';
 import './IndividualWishlist.css';
 
 export default function IndividualWishlist(){
@@ -12,6 +12,7 @@ export default function IndividualWishlist(){
     
     useEffect(()=>{
         dispatch(getWishlistItems(wishlistId))
+        return ()=>dispatch(clearProducts())
     },[dispatch])
 
     const removeItem=async(e)=>{
@@ -31,7 +32,7 @@ export default function IndividualWishlist(){
             {products.map(product=>(
                 <div className='eachProduct'>
                     <p>{product.name}</p>
-                    <img className='wishlistproductimage' src={product.image_url} alt='product'/>
+                    <Link to={`/products/${product.product_id}`}><img className='wishlistproductimage' src={product.image_url} alt='product'/></Link>
                     <p>${product.price}</p>
                     <button className="button" value={product.id} onClick={removeItem}>delete</button>
                     <button className="button" value={product.product_id} onClick={openInNewTab}>
