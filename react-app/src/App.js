@@ -12,6 +12,7 @@ import Products from "./components/Products"
 import IndividualProduct from "./components/IndividualProduct";
 import HomePage from "./components/HomePage";
 import CreateWishlist from "./components/CreateWishlist";
+import IndividualWishlist from "./components/IndividualWishlist";
 import './index.css'
 
 function App() {
@@ -55,7 +56,9 @@ function App() {
         <Route path="/products/:listingId" >
           <IndividualProduct />
         </Route>
-        
+        <Route path='/wishlist/:wishlistId'>
+          <IndividualWishlist />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

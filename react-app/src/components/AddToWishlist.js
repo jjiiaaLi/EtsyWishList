@@ -11,10 +11,11 @@ export default function AddToWishList(props){
     const history=useHistory()
     const user = useSelector((state) => Object.values(state.session));
     const userId = user[0]["id"];
-    const {listingId}=useParams()
     const [wishlist_id, setWishList_id]=useState(0)
     const wishlists = useSelector((state) => Object.values(state.wishlist));
-    
+    const product=useSelector(state=>Object.values(state.product))
+    const {listing_id,title,price}=product[0]    
+    const image_url=product[0].MainImage.url_fullxfull
 
     useEffect(() => {
       dispatch(loadWishlists(userId));
@@ -22,7 +23,7 @@ export default function AddToWishList(props){
 
     useEffect(async()=>{
         
-        await dispatch(editWishlist(listingId, wishlist_id));
+        await dispatch(editWishlist(listing_id, wishlist_id,title,image_url,price));
         
     },[wishlist_id])
 
