@@ -21,7 +21,7 @@ const SearchBar = () => {
 
     return (
         <div>
-            <form onSubmit={handleSearch}>
+            <form className="searchBar"onSubmit={handleSearch}>
                 <input
                     type="text"
                     className="searchInput"

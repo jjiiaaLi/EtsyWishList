@@ -1,39 +1,75 @@
-:root{
-    --main-background:#D4C093;
-    --secondary-background:#74c7e3;
-    --accent-one:#278FB8;
-    --accent-two:#a4b3bf;
-    --text-color:#4D4A54;
+:root {
+  --main-background: #d4c093;
+  --secondary-background: #74c7e3;
+  --accent-one: #278fb8;
+  --accent-two: #a4b3bf;
+  --text-color: #4d4a54;
 }
 
-
-
-.NavBar ul{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-background-color: var(--accent-one);
+.NavBar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: var(--accent-one);
 }
 
-.NavBar ul li{
-    list-style: none;
-    background-color: var(--accent-one);
+.NavBar ul li {
+  list-style: none;
+  background-color: var(--accent-one);
 }
-.NavBar ul li a{
-    text-decoration: none;
-    list-style: none;
-    background-color: var(--accent-one);
+.NavBar ul li a {
+  text-decoration: none;
+  list-style: none;
+  background-color: var(--accent-one);
 }
-.NavBar{
+.NavBar {
+  z-index: 500;
   background-color: var(--accent-one);
   max-height: 50px;
   padding: 10px;
   text-decoration: none;
-  border:2px solid #4D4A54;
+  border: 2px solid #4d4a54;
+}
+.NavBar ul {
+  display: flex;
+  justify-content: space-between;
+}
+.NavBar input {
+  background-color: var(--accent-two);
+  border-radius: 5px;
+  margin: 10px;
+}
+.searchBar {
+  background-color: var(--accent-one);
 }
 
-.Footer{
-    position:absolute;
-    bottom: 0;
-    width: 100%;
+.liButton {
+  background-color: var(--secondary-background);
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 1px;
+  cursor: pointer;
+}
+.loginSignup {
+  justify-self: flex-end;
+  display: flex;
+}
+
+.Footer {
+  background-color: var(--accent-one);
+  max-height: 50px;
+  text-decoration: none;
+  border: 2px solid #4d4a54;
+  bottom: 0;
+  width: 100%;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
+  bottom: 0pt;
+  left: 0pt;
 }
