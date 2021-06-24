@@ -25,16 +25,16 @@ const NavBar = () => {
             Home
           </NavLink>}
         </li>
-        <li>
+        {!user && <li>
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
           </NavLink>
-        </li>
-        <li>
+        </li>}
+        {!user && <li>
           <NavLink to="/sign-up" exact={true} activeClassName="active">
             Sign Up
           </NavLink>
-        </li>
+        </li>}
         <li>
           <SearchBar />
         </li>
@@ -43,9 +43,9 @@ const NavBar = () => {
             Products
           </NavLink>
         </li>
-        <li>
+        {user && <li>
           <LogoutButton />
-        </li>
+        </li>}
       </ul>
     </nav>
     </div>

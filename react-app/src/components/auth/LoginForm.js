@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
 import { login } from "../../store/session";
 import "./forms.css"
 const LoginForm = () => {
@@ -28,6 +28,14 @@ const LoginForm = () => {
 
   if (user) {
     return <Redirect to={`/users/${user.id}`}/>;
+  }
+
+  const demoUser=async(e)=>{
+
+    const data = await dispatch(login('demo@aa.io', "password"));
+    if (data.errors) {
+      setErrors(data.errors);
+    }
   }
 
   return (
@@ -61,8 +69,11 @@ const LoginForm = () => {
             onChange={updatePassword}
             />
             </div>
+            <button onClick={demoUser} >Login As Demo User</button>
             <div className="buttonDiv">
           <button className="button" type="submit">Login</button>
+          <Link to='/sign-up' >Don't Have An Account?</Link>
+
           </div>
         </div></form>
             </div>
