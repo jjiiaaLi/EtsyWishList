@@ -8,8 +8,33 @@
 
 .homeWrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  /* flex-direction: column;
+  align-items: center; */
+}
+.friendsContainer{
+background-color: var(--secondary-background);
+border-radius: 10px;
+border: 2px solid var(--accent-one);
+display: flex;
+flex-direction: column;
+margin: 25px;
+width: 100px;
+text-align: center;
+overflow: auto;
+}
+
+
+.friendsTitle{
+  background-color: transparent;
+
+  border-bottom: 2px solid var(--accent-one);
+}
+.friendLink{
+  background-color: var(--accent-one);
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  margin: 5px;
 }
 .listDiv{
     margin: 25px;
@@ -94,5 +119,3 @@ a{
     margin: 5px;
     z-index: 500;
 }
-
-
