@@ -93,7 +93,7 @@ export const removeProductFromWishlist=(product_id)=> async(dispatch)=>{
         "Content-Type": "application/json",
       },
     });
-
+    if(res.ok)return
 }
 
 //reducer

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {loadAllProducts, clearProducts} from "../store/product";
-import styles from './productListing.css'
-import {Link, useHistory} from 'react-router-dom';
+import {loadAllProducts} from "../store/product";
+import './productListing.css'
+import {Link} from 'react-router-dom';
 
 
 export default function Products(){
     const [ titleLen,setTitleLen] = useState(30)
     const [focusTitle, setFocusTitle] = useState(null)
-    const history=useHistory()
+    
 
 
     const dispatch = useDispatch()

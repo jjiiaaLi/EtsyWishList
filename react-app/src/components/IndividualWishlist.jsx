@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory} from "react-router-dom";
 import {
   getWishlistItems,
   removeProductFromWishlist,
@@ -8,15 +8,33 @@ import {
 } from "../store/product";
 import "./IndividualWishlist.css";
 
+
 export default function IndividualWishlist() {
+  const history=useHistory()
+  
+  
   const { wishlistId } = useParams();
   const dispatch = useDispatch();
   const products = useSelector((state) => Object.values(state.product));
+  const currentUser=useSelector(state=>state.session.user)
+  let userId
+
+ 
 
   useEffect(() => {
     dispatch(getWishlistItems(wishlistId));
     return () => dispatch(clearProducts());
-  }, [dispatch]);
+  }, [dispatch,wishlistId]);
+
+  if (!(useSelector(state=>state.session.user))){
+    history.push('/')
+    
+  }
+  else{
+    userId=currentUser.id
+  }
+
+  
 
   const removeItem = async (e) => {
     e.preventDefault();
@@ -34,10 +52,12 @@ export default function IndividualWishlist() {
     if (newWindow) newWindow.opener = null;
   };
 
+  
   return (
+    
     <div className="wishlistContainer">
       {products.map((product) => (
-        <div className="productCardWL" style={{ backgroundImage: `url("${product.image_url}")` }}>
+        <div className="productCardWL" key={product?.name} style={{ backgroundImage: `url("${product.image_url}")` }}>
           <div className="productTitle">{product?.name?.slice(0, 20)}...</div>
           <span></span>
           <span></span>
@@ -46,9 +66,9 @@ export default function IndividualWishlist() {
           <span></span>
             <div className="productPrice">${product?.price}</div>
           <div className="productButtonContainer">
-            <button className="button" value={product?.id} onClick={removeItem}>
+            {wishlistId==userId&&<button className="button"  value={product?.id} onClick={removeItem}>
               Remove
-            </button>
+            </button>}
             <button
               className="button"
               value={product?.product_id}

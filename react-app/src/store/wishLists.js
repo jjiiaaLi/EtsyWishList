@@ -38,6 +38,7 @@ export const createWishlist=(user_id,name,bought)=> async(dispatch)=>{
             bought,
         })
     })
+    if(res.ok)return
 }
 
 
@@ -55,7 +56,9 @@ export const editWishlist =
         image_url,
         price
       }),
+
     });
+    if(res.ok)return
   };
 
 

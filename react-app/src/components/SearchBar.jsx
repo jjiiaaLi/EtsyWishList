@@ -2,7 +2,7 @@
 // https://openapi.etsy.com/v2/listings/active.js?tags=shoes&limit=12&includes=MainImage:1&api_key=h6jf3au38z1loqmhogom8cet
 
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {searchProducts} from '../store/product'
 import { useHistory } from "react-router-dom";
 

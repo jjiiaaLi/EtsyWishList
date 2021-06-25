@@ -21,7 +21,7 @@ export default function IndividualProduct(){
   useEffect(() => {
 
       dispatch(loadSingleProduct(listingId));
-  }, [dispatch]);
+  }, [dispatch, listingId]);
 
   const product = useSelector((state) => Object.values(state.product));
 
@@ -30,10 +30,7 @@ export default function IndividualProduct(){
         history.push('/products')
   }
 
-  const selectWishList= async(e) =>{
-        e.preventDefault()
-        return null;
-  }
+  
 
 
   const descFunc = (desc) => {
@@ -68,6 +65,7 @@ export default function IndividualProduct(){
               {product[0]?.title.slice(0, 60)}
             </div>
             <img
+              alt='unique image'
               className="individualImage"
               src={product[0]?.MainImage.url_fullxfull}
             />

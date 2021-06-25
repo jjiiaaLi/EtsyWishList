@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory,useParams } from "react-router-dom";
+
 import { loadWishlists, editWishlist } from "../store/wishLists";
 import "./addToWL.css"
 
@@ -8,7 +8,7 @@ import "./addToWL.css"
 export default function AddToWishList(props){
     const { show, closeModal } = props;
     const dispatch=useDispatch()
-    const history=useHistory()
+    
     const user = useSelector((state) => Object.values(state.session));
     const userId = user[0]["id"];
     const [wishlist_id, setWishList_id]=useState(0)
@@ -21,10 +21,9 @@ export default function AddToWishList(props){
       dispatch(loadWishlists(userId));
     }, [dispatch]);
 
-    useEffect(async()=>{
-
-        await dispatch(editWishlist(listing_id, wishlist_id,title,image_url,price));
-
+    useEffect(()=>{
+        const func=async()=>await dispatch(editWishlist(listing_id, wishlist_id,title,image_url,price));
+        func()
     },[wishlist_id])
 
     const changeWishlistId=(e)=>{
@@ -33,7 +32,7 @@ export default function AddToWishList(props){
         closeModal()
     }
 
-    console.log(wishlists)
+    
 
     return (
       <>
