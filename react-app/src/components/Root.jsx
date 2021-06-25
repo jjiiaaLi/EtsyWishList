@@ -36,7 +36,7 @@ export default function Root(){
           Click{" "}
           <Link
             className="wLLink"
-            to={`/users/${user.userId}`}
+            to={`/users/${user.id}`}
             exact={true}
             activeClassName="active"
             >
