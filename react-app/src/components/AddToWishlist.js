@@ -33,7 +33,7 @@ export default function AddToWishList(props){
         closeModal()
     }
 
-
+    console.log(wishlists)
 
     return (
       <>
@@ -44,22 +44,23 @@ export default function AddToWishList(props){
           </button>
 
           <div className="addwishlistcontainer">
-              <div className="addWLTitle">
-                  Pick a wishlist to add to
-              </div>
-              <div className="addWLButtonsContainer">
-            {wishlists.map((wishlist) => (
-              <div className="wishListButtons">
-                <button
-                  className="button"
-                  onClick={changeWishlistId}
-                  value={wishlist.id}
-                  className="addTo"
-                >
-                  {wishlist.name}
-                </button>
-              </div>
-            ))}</div>
+            <div className="addWLTitle">Pick a wishlist to add to</div>
+            <div className="addWLButtonsContainer">
+              {wishlists.length>0 &&
+                wishlists.map((wishlist) => (
+                  <div className="wishListButtons">
+                    <button
+                      className="button"
+                      onClick={changeWishlistId}
+                      value={wishlist.id}
+                      className="addTo"
+                    >
+                      {wishlist.name}
+                    </button>
+                  </div>
+                ))}
+              {!wishlists.length>0 && <p className='noWishlistMsg'>You Don't Have Any Wish Lists!</p>}
+            </div>
           </div>
         </div>
       </>
