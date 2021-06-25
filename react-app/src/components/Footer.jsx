@@ -56,7 +56,7 @@ export default function Footer() {
           >
             Github
           </a>
-          <a className="footerLink" href="https://i.redd.it/1vjxppzccfo41.jpg">
+          <a className="footerLink" href="https://cdn11.bigcommerce.com/s-n2com0j/images/stencil/1280x1280/products/400/1848/400-Happy-Smily-Face-Sunglasses__89329.1463420311.jpg?c=2">
             LinkedIn
           </a>
         </div>

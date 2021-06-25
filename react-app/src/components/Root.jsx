@@ -14,11 +14,11 @@ export default function Root(){
         <div className="login-Signup">
           <div className="rootSent">
             Please{" "}
-            <Link className="wLLink" to="sign-up">
+            <Link className="wLLink" to="/login">
               Login
             </Link>{" "}
             or{" "}
-            <Link className="wLLink" to="sign-up">
+            <Link className="wLLink" to="/sign-up">
               Signup{" "}
             </Link>
             to start making wishlists

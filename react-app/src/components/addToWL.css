@@ -43,3 +43,7 @@ background-color:var(--accent-one);
 text-align: center;
 border-bottom: 2px solid var(--secondary-background);
 }
+
+.noWishlistMsg {
+  background-color:var(--accent-one);
+}
