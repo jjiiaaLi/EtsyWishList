@@ -8,4 +8,4 @@ class Wishlist(FlaskForm):
     user_id=IntegerField('user_id', [DataRequired()])
     name=StringField('Name', [DataRequired()])
     items=StringField('Items')
-    bought=StringField('Bought Items')
+   

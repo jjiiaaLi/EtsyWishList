@@ -1,7 +1,6 @@
 from flask import Blueprint
 from app.models import Product, product
 import requests
-from flask import request
 import json
 from random import randint
 

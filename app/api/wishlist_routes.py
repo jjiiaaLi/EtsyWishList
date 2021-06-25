@@ -26,8 +26,8 @@ def post_wishlist():
     if form.validate_on_submit():
         wishlist=Wish_List(
             user_id=form.data["user_id"],
-            name=form.data["name"],
-            bought=form.data["bought"]
+            name=form.data["name"]
+            
         )
         db.session.add(wishlist)
         db.session.commit()
