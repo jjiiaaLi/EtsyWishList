@@ -43,7 +43,7 @@ export default function Products(){
               <div className="prices">{"$" + product.price}</div>
           </Link>}</div>
         ))}
-
+      <div className="productsSpacer"></div>
       </div>
     );
 }

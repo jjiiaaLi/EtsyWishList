@@ -39,7 +39,7 @@
   background-position: center;
   background-repeat:no-repeat;
   padding: 10px;
-  
+
   justify-content: space-between;
   text-decoration: none;
   align-items: center;
@@ -65,4 +65,8 @@
 
 .prices{
   justify-self: flex-end;
+}
+
+.productsSpacer{
+  height: 100px;
 }
