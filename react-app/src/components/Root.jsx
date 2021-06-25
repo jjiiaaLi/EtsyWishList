@@ -6,12 +6,45 @@ import './Root.css'
 
 
 export default function Root(){
-    return(
-        <div className='rootPageDiv'>
-            <p>Don't Have An Account?</p>
-            <Link to='sign-up'>Create New Account</Link>
-            <p>Join the Wishlist Community!</p>
-        </div>
 
-    )
+    let user = useSelector((state) => state.session.user);
+
+    if(!user) return (
+      <div className="rootWrapper">
+        <div className="login-Signup">
+          <div className="rootSent">
+            Please{" "}
+            <Link className="wLLink" to="sign-up">
+              Login
+            </Link>{" "}
+            or{" "}
+            <Link className="wLLink" to="sign-up">
+              Signup{" "}
+            </Link>
+            to start making wishlists
+          </div>
+          <div className="rootSent">Join the Wishlist Community!</div>
+        </div>
+      </div>
+    );
+    else return (
+          <div className="rootWrapper">
+
+        <div className="login-Signup">
+        <div className="rootSent">Welcome {user.username}!</div>
+        <div className="rootSent">
+          Click{" "}
+          <Link
+            className="wLLink"
+            to={`/users/${user.userId}`}
+            exact={true}
+            activeClassName="active"
+            >
+            here
+          </Link>{" "}
+          to check out your wishlists.
+        </div>
+      </div>
+              </div>
+    );
 }

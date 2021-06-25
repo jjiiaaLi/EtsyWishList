@@ -14,14 +14,14 @@ export default function HomePage() {
   const paramId = useParams();
   const wishlists = useSelector((state) => Object.values(state.wishlist));
   let wishlistName=''
-  
+
 
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
-  
+
   const userFriends=useSelector(state=>Object.values(state.friend));
-  
+
   const friendsArray = user[0].friends.split(",");
   useEffect(() => {
     dispatch(loadWishlists(paramId.userId));
@@ -34,25 +34,27 @@ export default function HomePage() {
   } else {
     let friendName
     userFriends.forEach(friend=>{
-      
+
       if(friend.id==paramId.userId){
         friendName=friend.username
       }
     })
     wishlistName=`${friendName}'s Wish List`
   }
-  
 
-  
+
+
 
   return (
     <div className="homeWrapper">
+
       <CreateWishlist closeModal={closeModal} show={show} />
       {userFriends &&
-        <div className="friendsContainer">
-          <h2>Friends</h2>
+
+      <div className="friendsContainer">
+          <div className="friendsTitle">Friends</div>
           {userFriends.map((friend) => (
-            <Link to={`/users/${friend.id}`}>{friend.username}</Link>
+            <Link className="friendLink" to={`/users/${friend.id}`}>{friend.username}</Link>
           ))}
         </div>
       }

@@ -72,9 +72,8 @@ const LoginForm = () => {
             <button onClick={demoUser} >Login As Demo User</button>
             <div className="buttonDiv">
           <button className="button" type="submit">Login</button>
-          <Link to='/sign-up' >Don't Have An Account?</Link>
-
           </div>
+          <Link className="formLink"to='/sign-up' >Don't Have An Account?</Link>
         </div></form>
             </div>
 

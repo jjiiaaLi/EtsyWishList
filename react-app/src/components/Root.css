@@ -1,0 +1,33 @@
+:root {
+  --main-background: #d4c093;
+  --secondary-background: #74c7e3;
+  --accent-one: #278fb8;
+  --accent-two: #a4b3bf;
+  --text-color: #4d4a54;
+}
+
+
+.wLLink{
+    color:var(--accent-one);
+    background-color: var(--secondary-background);
+}
+.rootWrapper{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.login-Signup{
+    padding: 25px;
+    margin: 25px;
+    border-radius: 10px;
+    background-color: var(--secondary-background);
+    border: 3px solid var(--accent-one);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rootSent{
+    background-color: var(--secondary-background);
+}

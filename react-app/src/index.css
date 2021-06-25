@@ -9,6 +9,7 @@
  *{
      background-color: var(--main-background) ;
      margin:0;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
  }
 
  .NavBar > ul  {
@@ -20,4 +21,3 @@
 .NavBar > ul > li{
     list-style: none;
 }
-

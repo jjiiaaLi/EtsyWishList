@@ -11,7 +11,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
- 
+
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -87,8 +87,8 @@ const SignUpForm = () => {
           </div>
           <div className ="buttonDiv">
           <button className="button"type="submit">Sign Up</button>
-          <Link to='/login' >Already Have An Account?</Link>
           </div>
+          <Link to='/login' className="formLink">Already Have An Account?</Link>
           </div>
         </form>
       </div>
