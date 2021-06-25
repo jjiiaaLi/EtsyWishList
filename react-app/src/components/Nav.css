@@ -8,15 +8,17 @@
 
 .NavBar ul {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   background-color: var(--accent-one);
   align-items: center;
 }
 
 .NavBar ul li {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   background-color: var(--accent-one);
+  font-size: 13px;
 }
 .NavBar ul li a {
   text-decoration: none;

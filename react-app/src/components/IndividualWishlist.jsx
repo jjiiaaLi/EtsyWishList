@@ -34,6 +34,30 @@ export default function IndividualWishlist() {
     if (newWindow) newWindow.opener = null;
   };
 
+  if(!products.length){
+    return (
+      <div className="wishlistContainer">
+        <div className="emptyListContainer">
+          <div className="emptyWLSent">
+            You dont have any items in this wishlist
+          </div>
+          <div className="emptyWLSent">
+            Why not go find some{" "}
+            <Link
+              className="emptyWLLink"
+              to="/products"
+              exact={true}
+              activeClassName="active"
+            >
+              Here
+            </Link>
+            ?
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="wishlistContainer">
       {products.map((product) => (

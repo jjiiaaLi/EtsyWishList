@@ -38,6 +38,15 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
+              {user && (
+                <NavLink
+                  to={`/users/${userId}`}
+                  exact={true}
+                  activeClassName="active"
+                >
+                  {user.username}
+                </NavLink>
+              )}
               <LogoutButton />
             </li>
           </ul>

@@ -50,8 +50,25 @@ background-repeat:no-repeat;
     background-color: var(--secondary-background);
     color: black;
 }
-
-
+.emptyListContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 350px;
+    background-color: var(--secondary-background);
+    border: 3px solid var(--text-color);
+    border-radius: 10px;
+    margin: 25px;
+}
+.emptyWLSent{
+    background-color: var(--secondary-background);
+}
+.emptyWLLink{
+    background-color: var(--secondary-background);
+    color:var(--accent-one);
+}
 /* .productImage  {
 
 background-size: cover;
