@@ -61,6 +61,9 @@ function App() {
         <Route path="/wishlist/:wishlistId">
           <IndividualWishlist />
         </Route>
+        <Route>
+          <h1 className='page404'>404</h1>
+        </Route>
       </Switch>
       <Footer/>
       

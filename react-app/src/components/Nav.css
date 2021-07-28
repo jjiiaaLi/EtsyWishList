@@ -72,10 +72,11 @@
   width: 100%;
   background-attachment: scroll;
   background-position: 0% 0%;
-  position: fixed;
+  position: relative;
   bottom: 0pt;
   left: 0pt;
   text-align: center;
+  
 }
 .footerBox{
   width:150px;

@@ -28,7 +28,7 @@ export default function Root(){
       </div>
     );
     else return (
-          <div className="rootWrapper">
+      <div className="rootWrapper">
 
         <div className="login-Signup">
         <div className="rootSent">Welcome {user.username}!</div>

@@ -14,6 +14,5 @@ class Wish_List(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
-            "name": self.name
-            
+            "name": self.name    
         }

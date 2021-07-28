@@ -9,8 +9,7 @@
 .homeWrapper {
   display: flex;
   justify-content: center;
-  /* flex-direction: column;
-  align-items: center; */
+  height:750px;
 }
 .friendsContainer{
 background-color: var(--secondary-background);
@@ -22,6 +21,7 @@ margin: 25px;
 width: 100px;
 text-align: center;
 overflow: auto;
+height:400px;
 }
 
 
@@ -63,18 +63,19 @@ overflow: auto;
 }
 
 .individualWishListDiv {
-    display: flex;
-  max-width: 200px;
+  display: flex;
+  max-width: 150px;
   max-height: 150px;
   margin: 10px;
   border: 2px solid var(--text-color);
-  height: 75px;
-  width: 75px;
+  height: 150px;
+  width: 150px;
   text-align: center;
   justify-content: center;
   align-items: center;
   background-color:var(--accent-one);
   border-radius: 10px;
+  overflow: hidden;
 }
 .createButton{
   background-color: var(--accent-one);

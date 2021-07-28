@@ -9,6 +9,7 @@
 
 .productsContainer {
   justify-content: center;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;

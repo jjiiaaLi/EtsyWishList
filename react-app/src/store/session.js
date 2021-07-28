@@ -79,6 +79,16 @@ export const signUp = (username, email, password) => async (dispatch) => {
   dispatch(setUser(data));
 };
 
+const checkParam=(paramId)=>async(dispatch)=>{
+  const res=await fetch(`/api/auth/${paramId}`)
+  if (res.status===200){
+    return true
+  }
+  else{
+    return false
+  }
+}
+
 const initialState = { user: null };
 
 export default function sessionReducer(state = initialState, action) {

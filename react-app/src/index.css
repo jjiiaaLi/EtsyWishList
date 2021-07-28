@@ -21,3 +21,8 @@
 .NavBar > ul > li{
     list-style: none;
 }
+
+.page404{
+    height:620px;
+    margin:50px;
+}
