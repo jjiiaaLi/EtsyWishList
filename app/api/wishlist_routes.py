@@ -73,3 +73,16 @@ def delete_product(product_id):
     db.session.commit()
 
     return '',200
+
+@wishlist_routes.route('/deletewishlist/<int:id>', methods=["DELETE"])
+def delete_wishlist(id):
+    
+    
+    wishlist=Wish_List.query.filter_by(id=id).first()
+
+    db.session.delete(wishlist)
+    db.session.commit()
+
+    return '',200
+
+    

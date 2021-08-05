@@ -61,6 +61,19 @@ export const editWishlist =
     if(res.ok)return
   };
 
+export const deletewishlist=(id)=>async(dispatch)=>{
+    
+    const res = await fetch(`/api/wishlists/deletewishlist/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        
+      },
+    });
+    if (res.ok) {
+      return
+    }
+}
 
 
 

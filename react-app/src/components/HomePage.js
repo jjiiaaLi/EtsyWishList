@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadWishlists } from "../store/wishLists";
+import { loadWishlists, deletewishlist } from "../store/wishLists";
 import { checkParam } from "../store/session";
 import { Link , useParams, useHistory} from "react-router-dom";
 import "./HomePage.css";
@@ -49,7 +49,8 @@ export default function HomePage() {
       history.push('/asdfg')
     }
   };
-  checkParam(paramId.userId);
+  
+  
   
     return (
       <div className="homeWrapper">
@@ -73,6 +74,9 @@ export default function HomePage() {
                 <Link to={`/wishlist/${wishlist.id}`}>
                   <div className="wishListName">{wishlist.name}</div>
                 </Link>
+                <button className='deletewishlistbtn' value={wishlist.id}onClick={e=>{dispatch(deletewishlist(e.target.value));
+                window.location.reload();
+                }}>delete</button>
               </div>
             ))}
           </div>
