@@ -6,6 +6,7 @@ import {
   removeProductFromWishlist,
   clearProducts,
 } from "../store/product";
+import Footer from './Footer'
 import "./IndividualWishlist.css";
 
 
@@ -79,6 +80,7 @@ export default function IndividualWishlist() {
           </div>
         </div>
       ))}
+      <Footer/>
     </div>
   );
 }

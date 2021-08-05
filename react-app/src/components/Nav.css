@@ -72,7 +72,7 @@
   width: 100%;
   background-attachment: scroll;
   background-position: 0% 0%;
-  position: relative;
+  position: absolute;
   bottom: 0pt;
   left: 0pt;
   text-align: center;

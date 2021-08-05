@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useParams, useHistory} from 'react-router-dom';
 import { loadSingleProduct } from "../store/product";
+import Footer from "./Footer";
 import "./context/Modal.css";
 import AddToWishList from "./AddToWishlist";
 import './IndividualProduct.css'
@@ -91,6 +92,7 @@ export default function IndividualProduct(){
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     );
 

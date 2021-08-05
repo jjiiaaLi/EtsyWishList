@@ -5,6 +5,7 @@ import { checkParam } from "../store/session";
 import { Link , useParams, useHistory} from "react-router-dom";
 import "./HomePage.css";
 import CreateWishlist from "./CreateWishlist";
+import Footer from "./Footer";
 import "./context/Modal.css";
 import {loadFriend} from '../store/friends';
 
@@ -83,6 +84,7 @@ export default function HomePage() {
             )}
           </div>
         </div>
+        <Footer/>
       </div>
     );
 }

@@ -65,7 +65,7 @@ function App() {
           <h1 className='page404'>404</h1>
         </Route>
       </Switch>
-      <Footer/>
+      
       
     </BrowserRouter>
   );
